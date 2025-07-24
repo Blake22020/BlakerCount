@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun vibrate(milliseconds: Long, amplitude: Int) {
         val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val vibratorManager = getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager

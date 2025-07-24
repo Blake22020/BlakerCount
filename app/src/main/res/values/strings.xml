@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Blaker Count</string>
-    <string name="click">Click</string>
+    <string name="click">Click!</string>
     <string name="blaker_click">Blaker Click</string>
 </resources>
