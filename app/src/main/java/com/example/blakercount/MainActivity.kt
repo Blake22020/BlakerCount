@@ -1,6 +1,7 @@
 package com.example.blakercount
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.os.*
+import androidx.core.graphics.toColorInt
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,8 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
         button.setOnClickListener {
-            increment()
-            vibrate(250, 30)
+            click()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -27,6 +28,27 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun click() {
+        val count = findViewById<TextView>(R.id.count).text.toString().toInt()
+        val index = count % 7
+        val colors = listOf(
+            "#FF0000",
+            "#FFA500",
+            "#FFFF00",
+            "#00FF00",
+            "#00FFFF",
+            "#0000FF",
+            "#8A2BE2"
+        )
+
+        val button = findViewById<Button>(R.id.button)
+
+        button.setBackgroundColor(colors[index].toColorInt())
+
+        increment()
+        vibrate(250, 30)
     }
 
 
