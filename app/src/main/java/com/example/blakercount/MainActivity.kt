@@ -43,8 +43,10 @@ class MainActivity : AppCompatActivity() {
             "#8A2BE2"
         )
 
+        val text = findViewById<TextView>(R.id.count)
         val button = findViewById<Button>(R.id.button)
 
+        text.setTextColor(colors[index].toColorInt())
         button.setBackgroundColor(colors[index].toColorInt())
 
         increment()
